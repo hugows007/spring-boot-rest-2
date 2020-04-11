@@ -1,7 +1,7 @@
 package br.com.hugows.restwithspringboot.converter.mocks;
 
 import br.com.hugows.restwithspringboot.data.model.Person;
-import br.com.hugows.restwithspringboot.vo.PersonVO;
+import br.com.hugows.restwithspringboot.data.vo.v1.PersonVO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,23 +32,23 @@ public class MockPerson {
     }
 
     private Person mockEntity(Integer number) {
-        Person person = new Person();
-        person.setAddress("Addres Test" + number);
-        person.setFirstName("First Name Test" + number);
-        person.setGener(((number % 2)==0) ? "Male" : "Female");
-        person.setId(number.longValue());
-        person.setLastName("Last Name Test" + number);
-        return person;
+        return Person.builder()
+                .id(number.longValue())
+                .address("Addres Test" + number)
+                .firstName("First Name Test" + number)
+                .lastName("Last Name Test" + number)
+                .gener(((number % 2)==0) ? "Male" : "Female")
+                .build();
     }
 
     private PersonVO mockVO(Integer number) {
-        PersonVO person = new PersonVO();
-        person.setAddress("Addres Test" + number);
-        person.setFirstName("First Name Test" + number);
-        person.setGener(((number % 2)==0) ? "Male" : "Female");
-        person.setId(number.longValue());
-        person.setLastName("Last Name Test" + number);
-        return person;
+        return   PersonVO.builder()
+                .key(number.longValue())
+                .address("Addres Test" + number)
+                .firstName("First Name Test" + number)
+                .lastName("Last Name Test" + number)
+                .gener(((number % 2)==0) ? "Male" : "Female")
+                .build();
     }
 
 }
