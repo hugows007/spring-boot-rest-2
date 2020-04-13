@@ -1,1 +1,65 @@
-Lombok
+= Spring Boot - REST
+
+Projeto desenvolvido e disponibilizado para fins de consultas e estudos.
+
+---
+
+=== Tecnologias
+----
+* Java
+* Maven
+* Spring Boot
+* JPA Hibernate
+* MySQL
+----
+
+=== Banco de dados
+```sql
+-- Create
+create database rest_with_spring_boot_udemy;
+```
+
+=== Execução local
+Alterar no application.properties:
+
+*de*
+
+```java
+spring.profiles.active=prod
+```
+*para*
+
+```java
+spring.profiles.active=dev
+```
+
+```sql
+-- Create
+create database rest_with_spring_boot_udemy;
+```
+
+---
+
+=== Abordagem
+
+* *Lombok*
+* *Exceptions personalizadas*
+* *HATOES*
+* *Padrão VO (Converters/Dozer)*
+* *Upload/Download de arquivos*
+* *Securityt/JWT*
+* *Migrations (Flyway)*
+* *Content Negotiation*
+* *Swagger*
+* *CORS*
+* *Paginação*
+* *Suporte ao Docker*
+
+---
+
+Inspirado no(s) curso(s):
+
+* *REST API's RESTFul do 0 à Nuvem Com Spring Boot 2.x e Docker*
+
+https://www.udemy.com/course/restful-apis-do-0-a-nuvem-com-springboot-e-docker/[Udemy | Professor Leandro da Costa Gonçalves]
+
