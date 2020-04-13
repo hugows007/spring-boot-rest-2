@@ -3,6 +3,7 @@ package br.com.hugows.restwithspringboot.controller;
 import br.com.hugows.restwithspringboot.data.vo.v1.UploadFileResponseVO;
 import br.com.hugows.restwithspringboot.services.FileStorageService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -27,6 +28,7 @@ public class FileController {
     @Autowired
     private FileStorageService fileStorageService;
 
+    @ApiOperation(value = "Upload single file")
     @PostMapping("/uploadFile")
     public UploadFileResponseVO uploadFile(@RequestParam("file") MultipartFile multipartFile) {
         String fileName = fileStorageService.storeFile(multipartFile);
@@ -43,6 +45,7 @@ public class FileController {
                 .build();
     }
 
+    @ApiOperation(value = "Upload multiple files")
     @PostMapping("/uploadMultipleFiles")
     public List<UploadFileResponseVO> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
         return Arrays.stream(files)
@@ -50,6 +53,7 @@ public class FileController {
                 .collect(Collectors.toList());
     }
 
+    @ApiOperation(value = "Download by file name")
     @GetMapping("/downloadFile/{fileName:.+}")
     public ResponseEntity<?> downloadFile(@PathVariable String fileName, HttpServletRequest request) {
         Resource resource = fileStorageService.loadFileAsResource(fileName);
